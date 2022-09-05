@@ -23,6 +23,23 @@ public class Liste
         return head;
     }
 
+    Node insertFromTail(Node node)
+    {
+        if(isEmpty())
+        {
+            //er liste tom
+            head = node;
+            tail = node;
+            return tail;
+        }
+
+        //listen er ikke tom
+        node.previous = tail;
+        tail.next = node;
+        tail = node;
+        return tail;
+    }
+
 
     boolean isEmpty()
     {
@@ -47,6 +64,7 @@ public class Liste
         //trim fjerner mellemrum i starten og slutningen af en string
     }
 
+    /*
     void printFromTail(Node n)
     {
         while (n != null)
@@ -55,4 +73,24 @@ public class Liste
             n = n.previous;
         }
     }
+
+     */
+
+    String printFromTail() {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        Node n = tail;
+
+        while (n != null)
+        {
+            //System.out.println(n.data);
+            stringBuilder.append(n.data + " ");
+
+            n = n.previous;
+        }
+        return stringBuilder.toString().trim();
+        //trim fjerner mellemrum i starten og slutningen af en string
+    }
+
 }
