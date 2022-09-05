@@ -93,4 +93,21 @@ public class Liste
         //trim fjerner mellemrum i starten og slutningen af en string
     }
 
+    public void removeFromHead()
+    {
+        if (isEmpty())
+        {
+            return;
+        }
+        if (head == tail)
+        {
+            head = null;
+            tail = null;
+            return;
+        }
+
+        head = head.next;
+        head.previous.next = null;
+        head.previous = null;
+    }
 }

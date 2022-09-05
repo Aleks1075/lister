@@ -29,4 +29,27 @@ class ListeTest {
         liste.insertFromTail(new Node("1"));
         assertEquals("1", liste.printFromTail());
     }
+
+    @Test
+    void removeFromHead()
+    {
+        //test om den virker hvis listen er tom
+        liste.removeFromHead();
+        assertEquals("", liste.printFromHead());
+
+        //test om den virker hvis listen ikke er tom
+        liste.insertFromHead(new Node("Hello"));
+        liste.removeFromHead();
+        assertEquals("", liste.printFromHead());
+
+        //fjern ting
+        liste.insertFromHead(new Node("Hello"));
+        liste.insertFromHead(new Node("hej"));
+        liste.insertFromHead(new Node("med"));
+        liste.insertFromHead(new Node("dig"));
+
+        liste.removeFromHead();
+
+        assertEquals("med hej Hello", liste.printFromHead());
+    }
 }
