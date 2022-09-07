@@ -110,4 +110,22 @@ public class Liste
         head.previous.next = null;
         head.previous = null;
     }
+
+    public void removeFromTail()
+    {
+        if (isEmpty())
+        {
+            return;
+        }
+        if (head == tail)
+        {
+            head = null;
+            tail = null;
+            return;
+        }
+
+        tail = tail.previous;
+        tail.next.previous = null;
+        tail.next = null;
+    }
 }
